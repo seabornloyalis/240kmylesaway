@@ -9,6 +9,7 @@
   <!-- Optional Bootstrap theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="themes.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" language="javascript">
     function set_body_height() { // set body height = window height
       $('body').height(($(window).height()));
@@ -41,16 +42,24 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"><img src="#TODO" align="middle"></a>
+      <a class="navbar-brand" href=""><img src="#TODO" align="middle"></a>
     </div>
 
     <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scrawlings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Film and TV</a></li>
+            <li><a href="#">Tech and Videogames</a></li>
+          </ul>
+        </li>
         <li>
-          <a href="/">Scrawlings</a>
-          <li class="nav navbar-nav navbar-left">
-            <a href="/">(For when vanity projects are a qualification)</a>
+          <li class="nav navbar-nav navbar-left navbar-text">
+            (For when vanity projects are a qualification)
           </li>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -60,8 +69,8 @@
           <a href="html/resume.html">Curriculum Vitae</a>
         </li>
         <li>
-          <a href="TODO">Contact Me</a>
-          <li>
+          <a data-target="#modal-container" role="button" data-toggle="modal" id="contact_btn">Contact Me</a>
+        </li>
       </ul>
     </div>
 
@@ -118,11 +127,34 @@
           </a>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <div class="modal fade" id="modal-container" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  ×
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  Contact Me
+                </h4>
+              </div>
+              <div class="modal-body">
+                Email: <a href="mailto:chad.robert.m@gmail.com">chad.robert.m@gmail.com</a><br>
+                Github: <a href="https://github.com/seabornloyalis">seabornloyalis</a><br>
+                LinkedIn: <a href="https://www.linkedin.com/in/chad-myles-a75758118">Chad Myles</a><br>
+                Facebook: <a href="https://www.facebook.com/chad.robert.m"> Chad Myles </a><br>
+                Steam: <a href="https://steamcommunity.com/profiles/76561198006644314/"> Seaborn Loyalis </a><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
 </body>
 
 </html>
