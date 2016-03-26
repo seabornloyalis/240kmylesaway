@@ -1,0 +1,123 @@
+<html>
+
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One|Amatic+SC|Titillium+Web' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <title> Drive Drinking Game Review</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- Optional Bootstrap theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="themes.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../js/print.js"></script>
+  <script type="text/javascript" language="javascript">
+    var ARTICLE_ID = "driveReview";
+    var SOURCE = "../markdown/driveReview.html";
+    $(document).ready(function() {
+      $("#article").load(SOURCE);
+      $("#navbar").load("navbar.html");
+      get_comments();
+    });
+    function get_comments() {
+      jQuery('#comments').empty();
+      $.post("../php/backend.php",
+          {
+              action: "get_comments",
+              artID: ARTICLE_ID,
+          },
+      function(data) {
+          if (data == 0) {
+            console.log("No comments");
+            var msg = document.createElement("li");
+            msg.setAttribute("class", "list-group-item");
+            msg.innerHTML = "No comments on this article yet! Be the first to write a comment";
+            document.getElementById("comments").appendChild(msg);
+          }
+          else {
+            document.getElementById('comments_msg').innerHTML = "";
+            print_comments(data);
+          }
+      })
+    }
+    }
+    function submit_comment() {
+                $.post("../php/backend.php",
+                    {
+                        action: "submit_comment",
+                        user_handle: $("#handle").val(),
+                        comment: $("#comment_content").val(),
+                        artID: ARTICLE_ID,
+                    },
+                function(data) {
+                    if (data == 1) {
+                        $("#handle").val("");
+                        $("#comment_content").val("");
+                        document.getElementById('success_alert_contents').innerHTML = "Comment Submitted Successfully!";
+                        $("#success_alert").show();
+                        $("#fail_alert").hide();
+                        get_comments();
+                    }
+                    else {
+                        document.getElementById('fail_alert_contents').innerHTML = data;
+                        $("#fail_alert").show();
+                        $("#success_alert").hide();
+                    }
+                })
+      }
+  </script>
+</head>
+
+<body id="a">
+  <div id="navbar"></div>
+  <div class="container-fluid">
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="well col-md-8">
+        <div id="article"></div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="well col-md-8">
+        <ul class="list-group" id="comments">
+        </ul>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+      </div>
+      <div class="well col-md-8">
+          <form id="commentInput" class="replacement" action="javascript:submit_comment()" method="post">
+              Name/Handle: <input type="text" name="handle" id="handle" required><br>
+              <textarea name="comment_content" id="comment_content" rows=5 cols=30 required>
+              </textarea><br>
+              <input class="btn btn-primary btn-large center-block" id="login_btn" type="submit">
+          </form><br>
+          <div id="fail_alert" class="alert alert-danger alert-dismissable collapse" aria-hidden="true">
+                                <h4>
+                                Alert!
+                              </h4><div id="fail_alert_contents"></div>
+                            </div>
+                            <div id="success_alert" class="alert alert-success alert-dismissable collapse" aria-hidden="true">
+                                                  <h4>
+                                                  Nice!
+                                                </h4><div id="success_alert_contents"></div>
+                                              </div>
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+
+</html>

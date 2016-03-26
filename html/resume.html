@@ -11,92 +11,57 @@
   <link rel="stylesheet" href="themes.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" language="javascript">
-    $(document).ready(function(){
-      $("#includedContent").load("../markdown/CV.html");
+    $(document).ready(function() {
+      $("#resumecontents1").load("../markdown/CV.html");
+      $("#navbar").load("navbar.html");
     });
   </script>
 </head>
 
 <body id="a">
-  <nav id="navbr" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="../"><img src="#TODO" align="middle"></a>
-    </div>
-
-    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-left">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scrawlings <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Politics</a></li>
-            <li><a href="#">Film and TV</a></li>
-            <li><a href="#">Tech and Videogames</a></li>
-          </ul>
-        </li>
-        <li>
-          <li class="nav navbar-nav navbar-left navbar-text">
-            (For when vanity projects are a qualification)
-          </li>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#TODO">Projects</a>
-        </li>
-        <li>
-          <a href="resume.html">Curriculum Vitae</a>
-        </li>
-        <li>
-          <a data-target="#modal-container" role="button" data-toggle="modal" id="contact_btn">Contact Me</a>
-        </li>
-      </ul>
-    </div>
-
-  </nav>
+  <div id="navbar"></div>
 
   <div class="container-fluid">
-    <br><br>
+    <br>
+    <br>
     <div class="row">
       <div class="col-md-2">
       </div>
       <div class="well col-md-8">
-        <div id="includedContent"></div>
+        <div class="panel-group" id="panel-532090">
+          <div class="panel panel-default">
+            <h2> Editor / Techie </h2>
+            <div class="panel-heading">
+              <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-532090" href="#panel-element-518070">Chad Myles</a>
+            </div>
+            <div id="panel-element-518070" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div id="resumecontents1"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-group" id="panel-532100">
+          <div class="panel panel-default">
+            <h2> Contributors </h2>
+            <div class="panel-heading">
+              <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-532100" href="#panel-element-518080">Andrew Beebe</a>
+            </div>
+            <div id="panel-element-518080" class="panel-collapse collapse">
+              <div class="panel-body">
+                <div id="resumecontents2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md-2">
       </div>
     </div>
   </div>
 
-  <div class="modal fade" id="modal-container" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          ×
-        </button>
-        <h4 class="modal-title" id="myModalLabel">
-                                Contact Me
-                            </h4>
-      </div>
-      <div class="modal-body">
-        Email: <a href="mailto:chad.robert.m@gmail.com">chad.robert.m@gmail.com</a><br>
-        Github: <a href="https://github.com/seabornloyalis">seabornloyalis</a><br>
-        LinkedIn:<br>
-        Facebook: <a href="https://www.facebook.com/chad.robert.m"> Chad Myles </a><br>
-        Steam: <a href="https://steamcommunity.com/profiles/76561198006644314/"> Seaborn Loyalis </a><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 
 </html>
